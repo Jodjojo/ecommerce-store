@@ -2,6 +2,7 @@ import Link from "next/link";
 import Container from "@/components/ui/container";
 import MainNav from "@/components/main-nav";
 import getCategories from "@/actions/get-categories";
+import NavbarActions from "@/components/navbar-actions";
 
 ///simple call to prevent the actions from being cached so it can be easy to see changes mad eto the admin on the store during development stage
 export const revalidate = 0;
@@ -18,6 +19,7 @@ const Navbar = async () => {
 						<p className='font-bold text-xl'>STORE</p>
 					</Link>
 					<MainNav data={categories} />
+					<NavbarActions />
 				</div>
 			</Container>
 		</div>
