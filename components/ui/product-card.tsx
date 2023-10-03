@@ -5,6 +5,7 @@ import { Expand, ShoppingCart } from "lucide-react";
 import { Product } from "@/types";
 import IconButton from "@/components/ui/icon-button";
 import Currency from "@/components/ui/currency";
+import { useRouter } from "next/navigation";
 
 ///reusable component that we will use to render each product to be featured on page
 
@@ -13,8 +14,17 @@ interface ProductCard {
 }
 
 const ProductCard: React.FC<ProductCard> = ({ data }) => {
+	///we want to add a router to redirect from the product card if it is clicked
+	const router = useRouter();
+	const HandleClick = () => {
+		router.push(`/product/${data?.id}`);
+	};
+
 	return (
-		<div className='bg-white group cursor-pointer rounded-xl borderf p-3 space-y-4'>
+		<div
+			onClick={HandleClick}
+			className='bg-white group cursor-pointer rounded-xl borderf p-3 space-y-4'
+		>
 			{/* Images and actions of products to be rendered */}
 			<div className='aspect-square rounded-xl bg-gray-100 relative'>
 				<Image

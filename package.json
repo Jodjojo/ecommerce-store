@@ -9,9 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "clsx": "^2.0.0",
     "lucide-react": "^0.279.0",
-    "next": "latest",
+    "next": "^13.5.4",
     "query-string": "^8.1.0",
     "react": "latest",
     "react-dom": "latest",
