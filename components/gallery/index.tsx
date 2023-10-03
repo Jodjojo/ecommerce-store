@@ -23,6 +23,22 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
 					))}
 				</Tab.List>
 			</div>
+			{/* we then use the tab component from headless again to render the panels of the image in full and give room to be selected */}
+			<Tab.Panels className='aspect-square w-full'>
+				{images.map((image) => (
+					// Individual tab panel that will render the image of our product
+					<Tab.Panel key={image.id}>
+						<div className='aspect-square relative h-full w-full sm:rounded-lg overflow-hidden'>
+							<Image
+								fill
+								src={image.url}
+								alt='Image'
+								className='object-cover object-center'
+							/>
+						</div>
+					</Tab.Panel>
+				))}
+			</Tab.Panels>
 		</Tab.Group>
 	);
 };
