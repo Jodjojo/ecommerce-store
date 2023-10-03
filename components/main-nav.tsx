@@ -16,7 +16,7 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
 	const pathname = usePathname();
 	///defining the routes that will be displayed on the navigation bar
 	const routes = data.map((route) => ({
-		href: `/catgory/${route.id}`,
+		href: `/category/${route.id}`,
 		label: route.name,
 		active: pathname === `/category/${route.id}`,
 	}));

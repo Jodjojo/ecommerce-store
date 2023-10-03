@@ -31,6 +31,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 					className
 				)}
 				ref={ref}
+				///to use all avaiable props for the button component
+				{...props}
 			>
 				{children}
 			</button>
