@@ -1,11 +1,13 @@
 "use client";
 import Image from "next/image";
 import { Expand, ShoppingCart } from "lucide-react";
+import { MouseEventHandler } from "react";
 
 import { Product } from "@/types";
 import IconButton from "@/components/ui/icon-button";
 import Currency from "@/components/ui/currency";
 import { useRouter } from "next/navigation";
+import usePreviewModal from "@/hooks/use-preview-modal";
 
 ///reusable component that we will use to render each product to be featured on page
 
@@ -14,10 +16,19 @@ interface ProductCard {
 }
 
 const ProductCard: React.FC<ProductCard> = ({ data }) => {
+	const previewModal = usePreviewModal();
 	///we want to add a router to redirect from the product card if it is clicked
 	const router = useRouter();
 	const HandleClick = () => {
 		router.push(`/product/${data?.id}`);
+	};
+
+	///to handle the activation of the preview Modal using the expand button
+	///This uses the html button element event
+	const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
+		event.stopPropagation(); ///to overwride the fact that the main div where this iconButton is has an onClick
+
+		previewModal.onOpen(data);
 	};
 
 	return (
@@ -37,7 +48,7 @@ const ProductCard: React.FC<ProductCard> = ({ data }) => {
 				<div className='opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5'>
 					<div className='flex gap-x-6 justify-center'>
 						<IconButton
-							onClick={() => {}}
+							onClick={onPreview}
 							icon={<Expand size={20} className='text-gray-600' />}
 						/>
 						<IconButton
