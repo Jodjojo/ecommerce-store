@@ -8,6 +8,7 @@ import IconButton from "@/components/ui/icon-button";
 import Currency from "@/components/ui/currency";
 import { useRouter } from "next/navigation";
 import usePreviewModal from "@/hooks/use-preview-modal";
+import useCart from "@/hooks/use-cart";
 
 ///reusable component that we will use to render each product to be featured on page
 
@@ -16,6 +17,7 @@ interface ProductCard {
 }
 
 const ProductCard: React.FC<ProductCard> = ({ data }) => {
+	const cart = useCart();
 	const previewModal = usePreviewModal();
 	///we want to add a router to redirect from the product card if it is clicked
 	const router = useRouter();
@@ -29,6 +31,13 @@ const ProductCard: React.FC<ProductCard> = ({ data }) => {
 		event.stopPropagation(); ///to overwride the fact that the main div where this iconButton is has an onClick
 
 		previewModal.onOpen(data);
+	};
+
+	///on Add to cart function
+	const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+		event.stopPropagation(); ///to overwride the fact that the main div where this iconButton is has an onClick
+
+		cart.addItem(data);
 	};
 
 	return (
@@ -52,7 +61,7 @@ const ProductCard: React.FC<ProductCard> = ({ data }) => {
 							icon={<Expand size={20} className='text-gray-600' />}
 						/>
 						<IconButton
-							onClick={() => {}}
+							onClick={onAddToCart}
 							icon={<ShoppingCart size={20} className='text-gray-600' />}
 						/>
 					</div>

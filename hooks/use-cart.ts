@@ -30,7 +30,7 @@ const useCart = create(
 
 				// else we set the new item in cart
 				set({ items: [...get().items, data] });
-				toast.success("Itemm added to cart.");
+				toast.success("Item added to cart.");
 			},
 			///to remove Item from cart
 			removeItem: (id: string) => {
