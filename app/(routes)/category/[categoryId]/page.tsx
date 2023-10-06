@@ -9,8 +9,8 @@ import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
 import MobileFilters from "./components/mobile-filters";
 
-// ///prevent caching
-// export const revaldiate = 0;
+///prevent caching
+export const revaldiate = 0;
 
 ///interface to add the props
 interface CategoryPageProps {
