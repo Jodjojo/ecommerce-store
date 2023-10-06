@@ -6,6 +6,10 @@ import { useState, useEffect } from "react";
 import CartItem from "./components/card-item";
 import Summary from "./components/summary";
 
+import Loading from "./components/loading";
+
+export const revalidate = 0;
+
 const CartPage = () => {
 	const [isMounted, setIsMounted] = useState(false);
 
@@ -16,7 +20,7 @@ const CartPage = () => {
 	}, []);
 
 	if (!isMounted) {
-		return null;
+		return <Loading />;
 	}
 
 	///use the cart hook
