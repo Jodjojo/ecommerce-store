@@ -4,7 +4,7 @@ import Billboard from "@/components/billboard";
 import ProductList from "@/components/product-list";
 import Container from "@/components/ui/container";
 
-export const revalidate = 0;
+// export const revalidate = 0;
 ///the fetched billboard container containing the products will be displayed here
 const HomePage = async () => {
 	///we fetch our billboards and products from our actions folder to be displayed on home page

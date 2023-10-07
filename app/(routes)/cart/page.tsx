@@ -8,7 +8,7 @@ import Summary from "./components/summary";
 
 import Loading from "./components/loading";
 
-export const revalidate = 0;
+// export const revalidate = 0;
 
 const CartPage = () => {
 	const [isMounted, setIsMounted] = useState(false);

@@ -7,7 +7,7 @@ import ProductList from "@/components/product-list";
 import Gallery from "@/components/gallery";
 import Info from "@/components/info";
 
-export const revalidate = 0;
+// export const revalidate = 0;
 
 interface ProductPageProps {
 	params: {
