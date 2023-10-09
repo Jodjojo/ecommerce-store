@@ -1,7 +1,6 @@
 "use client";
 ///the component to display the cart items on the cart page
 import Image from "next/image";
-import { toast } from "react-hot-toast";
 import { X } from "lucide-react";
 
 import IconButton from "@/components/ui/icon-button";

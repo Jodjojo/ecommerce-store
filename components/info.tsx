@@ -3,7 +3,9 @@
 import { Product } from "@/types";
 import Currency from "@/components/ui/currency";
 import Button from "@/components/ui/button";
+import useCart from "@/hooks/use-cart";
 import { ShoppingCart } from "lucide-react";
+import { MouseEventHandler } from "react";
 
 ///for the info of the products to be displayed on the gallery
 interface InfoProps {
@@ -11,6 +13,14 @@ interface InfoProps {
 }
 
 const Info: React.FC<InfoProps> = ({ data }) => {
+	const cart = useCart();
+
+	///on Add to cart function
+	const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+		event.stopPropagation(); ///to overwride the fact that the main div where this iconButton is has an onClick
+
+		cart.addItem(data);
+	};
 	return (
 		<div>
 			<h1 className='text-3xl font-bold text-gray-900'>{data.name}</h1>
@@ -36,7 +46,8 @@ const Info: React.FC<InfoProps> = ({ data }) => {
 				</div>
 			</div>
 			<div className='mt-10 flex items-center gap-x-3'>
-				<Button className='flex items-center gap-x-2'>
+				{/* Find add to cart function and call it to onClick here */}
+				<Button onClick={onAddToCart} className='flex items-center gap-x-2'>
 					Add To Cart
 					<ShoppingCart />
 				</Button>
