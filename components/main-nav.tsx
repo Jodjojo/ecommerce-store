@@ -22,21 +22,23 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
 	}));
 
 	return (
-		<nav className='mx-6 flex items-center space-x-4 lg:space-x-6'>
-			{/* We dynamically define our classname using the tailwind merger cn */}
-			{routes.map((route) => (
-				<Link
-					key={route.href}
-					href={route.href}
-					className={cn(
-						"text-sm font-medium transition-colors hover:text-black",
-						route.active ? "text-black" : "text-neutral-500"
-					)}
-				>
-					{route.label}
-				</Link>
-			))}
-		</nav>
+		<li className='overflow-scroll no-scrollbar'>
+			<nav className='mx-6 flex items-center space-x-4 lg:space-x-6'>
+				{/* We dynamically define our classname using the tailwind merger cn */}
+				{routes.map((route) => (
+					<Link
+						key={route.href}
+						href={route.href}
+						className={cn(
+							"text-sm font-medium transition-colors hover:text-black",
+							route.active ? "text-black" : "text-neutral-500"
+						)}
+					>
+						{route.label}
+					</Link>
+				))}
+			</nav>
+		</li>
 	);
 };
 
